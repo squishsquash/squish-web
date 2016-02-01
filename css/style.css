@@ -15,3 +15,28 @@ body {
 	background-repeat: repeat;
 	animation: animatedBackground 40s linear infinite;
 }
+
+#hello {
+  color: #744EAA;
+  background: #77B255;
+  font-family: Arial;
+  display: inline-flex;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.outer-container {
+	position: relative;
+	height: 600px;
+	width: 100%;
+}
+
+.inner-container {
+	text-align: center;
+	width: 100%;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
