@@ -19,6 +19,7 @@ body {
 #hello {
   color: #744EAA;
   background: #77B255;
+  opacity: 0.8;
   font-family: Arial;
   display: inline-flex;
   padding: 10px;
