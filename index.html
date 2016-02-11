@@ -5,12 +5,30 @@
 	<meta charset="UTF-8" />
 	<script src="/js/resources/angular.js" type="text/javascript"></script>
 	<script src="/js/app/app.js" type="text/javascript"></script>
+	<script src="/js/app/photo-view.controller.js" type="text/javascript"></script>
+	<script src="/js/app/photo.service.js" type="text/javascript"></script>
+	<script src="js/app/secrets.js" type="text/javascript"></script>	
 	<link href="/css/style.css" rel="stylesheet" />
 </head>
 <body ng-controller='AppCtrl'>
 	<div class="outer-container">
-		<div class=inner-container>
-			<h1 id="hello">Hello {{name}}!<h1>
+		<div ng-switch="photoSwitcher" ng-controller="PhotoController" class="inner-container">
+			
+			<h1 ng-switch-default id="hello" ng-click="getAllPhotos()">Hello {{name}}!<h1>
+			
+			<div class='preloadcontainer' ng-switch-when="loading">
+				<i id="preloader" class='preloader'></i>
+			</div>
+			
+			<div id="photo-container" ng-switch-when="loaded">
+				<div class="photo-mat" ng-repeat="photo in photos">
+					<div class="photo-mat-inlay">
+						<img  image-on-load class="photo spinner" ng-src="{{photo.image.url}}" />
+						<span class="loading"> <img src="https://www.yugma.com/images/loading-animation-7.gif"/></span>
+						<p style="font-size:10px;">{{photo.createdAt | date : 'medium'}}</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
